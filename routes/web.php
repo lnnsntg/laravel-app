@@ -20,17 +20,8 @@ Route::get('/', function () {
     return "Bienvenidos a Laraval";
 });
 
-
 Route::get('/games', [GamesController::class, 'index']);
-
 
 Route::get('/games/create', [GamesController::class, 'create']);
 
-Route::get('/games/{name_game}/{categoria?}', function ($name_game, $categoria = null) {
-    // return view('welcome');
-    if ($categoria) {
-        return "Esta es mi pagina del juego: " . $name_game . " que pertenece a la categoria: " . $categoria;
-    } else {
-        return "Esta es mi pagina del juego: " . $name_game;
-    }
-});
+Route::get('/games/{name_game}/{categoria?}', [GamesController::class, 'help']);
